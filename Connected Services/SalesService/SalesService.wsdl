@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AddSales">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sale" type="tns:Sale" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Sale">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sal_no" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sal_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sal_class" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sal_sex" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sal_age" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sal_number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sal_pwd" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddSalesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddSalesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectSales">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sale" type="tns:Sale" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectSalesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectSalesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSalesGrade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="salegrade" type="tns:SaleGrade" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SaleGrade">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sal_no" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sal_date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sal_mount" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddSalesGradeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddSalesGradeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectGrade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="year" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectGradeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectGradeResult" type="tns:Month" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Month">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Jan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Feb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mar" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="May" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jun" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jul" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Aug" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sep" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Oct" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Dec" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Month" nillable="true" type="tns:Month" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSalesSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSales" />
+  </wsdl:message>
+  <wsdl:message name="AddSalesSoapOut">
+    <wsdl:part name="parameters" element="tns:AddSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectSalesSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectSales" />
+  </wsdl:message>
+  <wsdl:message name="SelectSalesSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSalesGradeSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSalesGrade" />
+  </wsdl:message>
+  <wsdl:message name="AddSalesGradeSoapOut">
+    <wsdl:part name="parameters" element="tns:AddSalesGradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectGradeSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectGrade" />
+  </wsdl:message>
+  <wsdl:message name="SelectGradeSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectGradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectGradeHttpGetIn">
+    <wsdl:part name="year" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SelectGradeHttpGetOut">
+    <wsdl:part name="Body" element="tns:Month" />
+  </wsdl:message>
+  <wsdl:message name="SelectGradeHttpPostIn">
+    <wsdl:part name="year" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SelectGradeHttpPostOut">
+    <wsdl:part name="Body" element="tns:Month" />
+  </wsdl:message>
+  <wsdl:portType name="SalesServiceSoap">
+    <wsdl:operation name="AddSales">
+      <wsdl:input message="tns:AddSalesSoapIn" />
+      <wsdl:output message="tns:AddSalesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectSales">
+      <wsdl:input message="tns:SelectSalesSoapIn" />
+      <wsdl:output message="tns:SelectSalesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSalesGrade">
+      <wsdl:input message="tns:AddSalesGradeSoapIn" />
+      <wsdl:output message="tns:AddSalesGradeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectGrade">
+      <wsdl:input message="tns:SelectGradeSoapIn" />
+      <wsdl:output message="tns:SelectGradeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SalesServiceHttpGet">
+    <wsdl:operation name="SelectGrade">
+      <wsdl:input message="tns:SelectGradeHttpGetIn" />
+      <wsdl:output message="tns:SelectGradeHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SalesServiceHttpPost">
+    <wsdl:operation name="SelectGrade">
+      <wsdl:input message="tns:SelectGradeHttpPostIn" />
+      <wsdl:output message="tns:SelectGradeHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SalesServiceSoap" type="tns:SalesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSales">
+      <soap:operation soapAction="http://tempuri.org/AddSales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectSales">
+      <soap:operation soapAction="http://tempuri.org/SelectSales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSalesGrade">
+      <soap:operation soapAction="http://tempuri.org/AddSalesGrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectGrade">
+      <soap:operation soapAction="http://tempuri.org/SelectGrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SalesServiceSoap12" type="tns:SalesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSales">
+      <soap12:operation soapAction="http://tempuri.org/AddSales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectSales">
+      <soap12:operation soapAction="http://tempuri.org/SelectSales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSalesGrade">
+      <soap12:operation soapAction="http://tempuri.org/AddSalesGrade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectGrade">
+      <soap12:operation soapAction="http://tempuri.org/SelectGrade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SalesServiceHttpGet" type="tns:SalesServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="SelectGrade">
+      <http:operation location="/SelectGrade" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SalesServiceHttpPost" type="tns:SalesServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="SelectGrade">
+      <http:operation location="/SelectGrade" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SalesService">
+    <wsdl:port name="SalesServiceSoap" binding="tns:SalesServiceSoap">
+      <soap:address location="http://192.168.2.206:8088/SalesService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SalesServiceSoap12" binding="tns:SalesServiceSoap12">
+      <soap12:address location="http://192.168.2.206:8088/SalesService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SalesServiceHttpGet" binding="tns:SalesServiceHttpGet">
+      <http:address location="http://192.168.2.206:8088/SalesService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SalesServiceHttpPost" binding="tns:SalesServiceHttpPost">
+      <http:address location="http://192.168.2.206:8088/SalesService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

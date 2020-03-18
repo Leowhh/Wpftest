@@ -1,0 +1,56 @@
+﻿<Window x:Class="Wpftest.WpfLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Wpftest"
+        xmlns:cm="clr-namespace:System.ComponentModel;assembly=System"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="350" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
+    <Window.Background>
+        <ImageBrush ImageSource="login.png"/>
+    </Window.Background>
+    <Window.Resources>
+        <cm:BackgroundWorker x:Key="backgroundWorker"
+          WorkerReportsProgress="True" WorkerSupportsCancellation="True"
+          DoWork="backgroundWorker_DoWork"  
+          RunWorkerCompleted="backgroundWorker_RunWorkerCompleted"></cm:BackgroundWorker>
+    </Window.Resources>
+    <DockPanel Margin="0,0,0,82">
+
+        <Grid DockPanel.Dock="Top" Height="30"  MouseMove="WindowsMove" Background="#FF2073B9">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,0" >
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Height="25" Width="25" Click="Min_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="WindowMinimize" />
+                </Button>
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Height="25" Width="25" Click="Close_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFDE4B4B">
+                    <materialDesign:PackIcon Kind="Power"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Margin="0,0,0,-80">
+            <TextBlock Style="{StaticResource MaterialDesignHeadline5TextBlock}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,45" Height="35">
+               欢 迎
+            </TextBlock>
+            
+                <TextBox Name="txtUser" Margin="0,100" materialDesign:HintAssist.Hint="用户名" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Yu Mincho Light" FontSize="14" />
+                <PasswordBox Name="txtPwd" Margin="0,150" materialDesign:HintAssist.Hint="密码" materialDesign:HintAssist.Foreground="Green" materialDesign:TextFieldAssist.UnderlineBrush="Green" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" FontSize="14" FontFamily="Yu Mincho Light"/>
+
+            <Grid Margin="80,265,80,70">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="56*"/>
+                    <ColumnDefinition Width="135*"/>
+                </Grid.ColumnDefinitions>
+                <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="登 录" Width="90" Height="30" Grid.ColumnSpan="2" Margin="0,-17,0,-0.333" Click="Login_Click" />
+                <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="注 册" Width="90" Height="30" Grid.Column="1" Margin="0,-17,0,-0.333" Click="Res_Click"/>
+            </Grid>
+            <ProgressBar Name="progressBar" Style="{StaticResource MaterialDesignCircularProgressBar}"
+  Value="0"
+  IsIndeterminate="False" 
+            Grid.Row="4" Grid.ColumnSpan="2"
+               Margin="20" VerticalAlignment="Bottom" MinHeight="20" 
+               Minimum="0" Maximum="100" Height="20"></ProgressBar>
+        </Grid>
+    </DockPanel>
+</Window>

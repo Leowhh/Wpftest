@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Register">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_pwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ip_addr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_pwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ip_addr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLastDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLastDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLastDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegisterSoapIn">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="RegisterSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDateSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDate" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLastDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLastDate" />
+  </wsdl:message>
+  <wsdl:message name="GetLastDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLastDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterHttpGetIn">
+    <wsdl:part name="user_id" type="s:string" />
+    <wsdl:part name="user_pwd" type="s:string" />
+    <wsdl:part name="ip_addr" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpGetIn">
+    <wsdl:part name="user_id" type="s:string" />
+    <wsdl:part name="user_pwd" type="s:string" />
+    <wsdl:part name="ip_addr" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDateHttpGetIn">
+    <wsdl:part name="date" type="s:string" />
+    <wsdl:part name="user_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDateHttpGetOut" />
+  <wsdl:message name="GetLastDateHttpGetIn">
+    <wsdl:part name="user_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLastDateHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterHttpPostIn">
+    <wsdl:part name="user_id" type="s:string" />
+    <wsdl:part name="user_pwd" type="s:string" />
+    <wsdl:part name="ip_addr" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpPostIn">
+    <wsdl:part name="user_id" type="s:string" />
+    <wsdl:part name="user_pwd" type="s:string" />
+    <wsdl:part name="ip_addr" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDateHttpPostIn">
+    <wsdl:part name="date" type="s:string" />
+    <wsdl:part name="user_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDateHttpPostOut" />
+  <wsdl:message name="GetLastDateHttpPostIn">
+    <wsdl:part name="user_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLastDateHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="UserinfoServiceSoap">
+    <wsdl:operation name="Register">
+      <wsdl:input message="tns:RegisterSoapIn" />
+      <wsdl:output message="tns:RegisterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDate">
+      <wsdl:input message="tns:UpdateDateSoapIn" />
+      <wsdl:output message="tns:UpdateDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastDate">
+      <wsdl:input message="tns:GetLastDateSoapIn" />
+      <wsdl:output message="tns:GetLastDateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UserinfoServiceHttpGet">
+    <wsdl:operation name="Register">
+      <wsdl:input message="tns:RegisterHttpGetIn" />
+      <wsdl:output message="tns:RegisterHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginHttpGetIn" />
+      <wsdl:output message="tns:LoginHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDate">
+      <wsdl:input message="tns:UpdateDateHttpGetIn" />
+      <wsdl:output message="tns:UpdateDateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastDate">
+      <wsdl:input message="tns:GetLastDateHttpGetIn" />
+      <wsdl:output message="tns:GetLastDateHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UserinfoServiceHttpPost">
+    <wsdl:operation name="Register">
+      <wsdl:input message="tns:RegisterHttpPostIn" />
+      <wsdl:output message="tns:RegisterHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginHttpPostIn" />
+      <wsdl:output message="tns:LoginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDate">
+      <wsdl:input message="tns:UpdateDateHttpPostIn" />
+      <wsdl:output message="tns:UpdateDateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastDate">
+      <wsdl:input message="tns:GetLastDateHttpPostIn" />
+      <wsdl:output message="tns:GetLastDateHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserinfoServiceSoap" type="tns:UserinfoServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDate">
+      <soap:operation soapAction="http://tempuri.org/UpdateDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastDate">
+      <soap:operation soapAction="http://tempuri.org/GetLastDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserinfoServiceSoap12" type="tns:UserinfoServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Register">
+      <soap12:operation soapAction="http://tempuri.org/Register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDate">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastDate">
+      <soap12:operation soapAction="http://tempuri.org/GetLastDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserinfoServiceHttpGet" type="tns:UserinfoServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Register">
+      <http:operation location="/Register" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <http:operation location="/Login" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDate">
+      <http:operation location="/UpdateDate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastDate">
+      <http:operation location="/GetLastDate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserinfoServiceHttpPost" type="tns:UserinfoServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Register">
+      <http:operation location="/Register" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <http:operation location="/Login" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDate">
+      <http:operation location="/UpdateDate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastDate">
+      <http:operation location="/GetLastDate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserinfoService">
+    <wsdl:port name="UserinfoServiceSoap" binding="tns:UserinfoServiceSoap">
+      <soap:address location="http://192.168.2.206:8088/UserinfoService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserinfoServiceSoap12" binding="tns:UserinfoServiceSoap12">
+      <soap12:address location="http://192.168.2.206:8088/UserinfoService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserinfoServiceHttpGet" binding="tns:UserinfoServiceHttpGet">
+      <http:address location="http://192.168.2.206:8088/UserinfoService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserinfoServiceHttpPost" binding="tns:UserinfoServiceHttpPost">
+      <http:address location="http://192.168.2.206:8088/UserinfoService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
