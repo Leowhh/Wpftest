@@ -150,7 +150,7 @@ namespace Wpftest
             salegrade.sal_mount = Mount.Text.Trim();
 
             backgroundWorker1.RunWorkerAsync(salegrade);
-           
+           // uuyu 
         }
     }
 }
