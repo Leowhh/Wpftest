@@ -1,4 +1,4 @@
-﻿<Page x:Class="Wpftest.Dashboard"
+﻿<Page x:Class="Wpftest.DashboardSal"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,7 +7,7 @@
       xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" xmlns:cm="clr-namespace:System.ComponentModel;assembly=System"
       mc:Ignorable="d" 
-      Title="Dashboard">
+      Title="DashboardSal">
     <Page.Resources>
         <Style x:Key="defaultRadioStyle" TargetType="RadioButton">
             <Setter Property="Background" Value="Transparent"/>
@@ -52,8 +52,8 @@
           RunWorkerCompleted="backgroundWorker_RunWorkerCompleted">
         </cm:BackgroundWorker>
     </Page.Resources>
-    <Grid MinWidth="300" MinHeight="600">
-        
+    <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="4*"/>
@@ -63,7 +63,7 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock Text="统计数据" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"  Foreground="#586A73"/>
+            <TextBlock Text="个人统计数据" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"  Foreground="#586A73"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
 
                 <RadioButton x:Name="Year" Checked="Year_Checked" Margin="0,0,5,0" Width="80" Height="25" Style="{StaticResource defaultRadioStyle}" Cursor="Hand">
@@ -84,21 +84,21 @@
                         </Border.Effect>
                     </Border>
                     <Border CornerRadius="10" Margin="30 30 30 30" Background="#FF7900">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
 
-                        <Border BorderThickness="1" Height="1" BorderBrush="#EBEBEB" VerticalAlignment="Center" Grid.RowSpan="2"/>
+                            <Border BorderThickness="1" Height="1" BorderBrush="#EBEBEB" VerticalAlignment="Center" Grid.RowSpan="2"/>
                             <TextBlock x:Name="Max" Grid.Row="1" Foreground="Black" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="4*"/>
-                            </Grid.ColumnDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="4*"/>
+                                </Grid.ColumnDefinitions>
 
-                            <Border Background="#ffffff" Opacity="0.2" Width="35" Height="35" CornerRadius="35"/>
+                                <Border Background="#ffffff" Opacity="0.2" Width="35" Height="35" CornerRadius="35"/>
                                 <ProgressBar Name="progressBar1" Style="{StaticResource MaterialDesignCircularProgressBar}" Foreground="White" IsIndeterminate="False"         
                                     VerticalAlignment="Center"/>
                                 <TextBlock x:Name="MaxMonth"
@@ -106,14 +106,14 @@
                                                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
                                 <TextBlock Grid.Column="1" x:Name="MaxTip" FontWeight="Bold" FontSize="16" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        
-                            
-                            
+
+
+
+
+                            </Grid>
+
 
                         </Grid>
-
-
-                    </Grid>
                     </Border>
                 </Grid>
                 <Grid>
@@ -130,7 +130,6 @@
                             </Grid.RowDefinitions>
 
                             <Border BorderThickness="1" Height="1" BorderBrush="#EBEBEB" VerticalAlignment="Center" Grid.RowSpan="2"/>
-                            
                             <TextBlock x:Name="Min" Grid.Row="1" Foreground="Black" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -139,17 +138,17 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Border Background="#ffffff" Opacity="0.2" Width="35" Height="35" CornerRadius="35"/>
-                                <ProgressBar Name="progressBar2" Grid.Row="0" Style="{StaticResource MaterialDesignCircularProgressBar}" Foreground="White" IsIndeterminate="False"         
+                                <ProgressBar Name="progressBar2" Style="{StaticResource MaterialDesignCircularProgressBar}" Foreground="White" IsIndeterminate="False"         
                                     VerticalAlignment="Center"/>
                                 <TextBlock x:Name="MinMonth"
                                                    FontSize="16" Foreground="White"
                                                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
                                 <TextBlock Grid.Column="1" x:Name="MinTip" FontWeight="Bold" FontSize="16" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                
+
 
                             </Grid>
-                            
+
 
                         </Grid>
                     </Border>
@@ -192,7 +191,7 @@
 
 
         </Grid>
-        
+
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>

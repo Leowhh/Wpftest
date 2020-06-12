@@ -6,7 +6,7 @@
         xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Wpftest"
         mc:Ignorable="d"
-        Title="WpfMain" Height="800" Width="1200" WindowStyle="None" Loaded="Window_Loaded" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" SizeChanged="Window_SizeChanged" MouseLeftButtonDown="Window_MouseLeftButtonDown" >
+        Title="WpfMain" MinHeight="400" MinWidth="600" Height="800" Width="1200" WindowStyle="None" Loaded="Window_Loaded" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" SizeChanged="Window_SizeChanged" MouseLeftButtonDown="Window_MouseLeftButtonDown" >
     <Window.Resources>
         <Style x:Key="defaultRadioStyle" TargetType="RadioButton">
             <Setter Property="Background" Value="Transparent"/>
@@ -62,7 +62,11 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40,16,34,16">
                 <Border CornerRadius="30" Width="30" Height="30" Background="#59E6B5"/>
                 <Border CornerRadius="30" Width="30" Height="30" Background="#FF7900" Margin="-5,0,0,0"/>
-                <TextBlock Text="SLMGST" VerticalAlignment="Center" FontSize="18" FontWeight="Bold" Margin="10" Foreground="#4F5050"/>
+                <StackPanel Orientation="Vertical" Margin="15,0">
+                    <TextBlock Text="SLMGST" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="#4F5050"/>
+                    <TextBlock Text="by LWH" HorizontalAlignment="Right" FontSize="8" Foreground="#4F5050"/>
+                </StackPanel>
+                
             </StackPanel>
             <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <Button x:Name="info" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Width="50" Height="50" BorderBrush="{x:Null}" Click="View_Click" Background="AliceBlue">
@@ -70,64 +74,95 @@
                 </Button>
 
                 <StackPanel Margin="10">
-                    <TextBlock Foreground="Black" FontWeight="Bold" FontSize="18" x:Name="user" Text="TextBlock" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <TextBlock Text="管理员" FontSize="13" Foreground="#4F5050" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Microsoft YaHei UI Light"/>
+                    <TextBlock  Foreground="Black" FontWeight="Bold" FontSize="18" x:Name="user" Text="TextBlock" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="Type" FontSize="13" Foreground="#4F5050" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Microsoft YaHei UI Light"/>
                 </StackPanel>
 
             </StackPanel>
+            <materialDesign:Badged  Grid.Column="2" Margin="50,0,0,0" VerticalAlignment="Center" BadgeColorZoneMode="Light" Badge="3">
+                <Button x:Name="btn_openchart" Click="btn_openchart_Click" Width="30" Height="30" Foreground="AliceBlue" Background="#FFC100" Cursor="Hand"  BorderBrush="{x:Null}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}">
+                    <materialDesign:PackIcon Kind="MessageOutline" />
+                </Button>
 
+            </materialDesign:Badged>
+            <local:PopopHelper x:Name="popusBottom2" Topmost="False"  StaysOpen="True"  PopupAnimation="Slide" AllowsTransparency="False"
+                           PlacementTarget="{Binding  ElementName=popImg}" Placement="Right" VerticalOffset="0" HorizontalOffset="-270" >
+                <ScrollViewer>
+                    
+                
+                <StackPanel Orientation="Vertical" Margin="0,100">
+                    <TextBox Text="www"/>
+                    <TextBox Text="www"/>
+                    <TextBox Text="www"/>
+                    <TextBox Text="www"/>
+                    <TextBox Text="www"/>
+                    <TextBox Text="www"/>
+                    <TextBox Text="www"/>
+                    <TextBox Text="www"/>
+                    <TextBox Text="www"/>
+                    <TextBox Text="www"/>
+                    <TextBox Text="www"/>
+                    <TextBox Text="www"/>
+                    <TextBox Text="www"/>
+                    <TextBox Text="www"/>
+                </StackPanel>
+                </ScrollViewer>
+            </local:PopopHelper>
             <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,23,15,24" Width="67" >
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Margin="0,1,3,1" Height="20" Width="20" Click="Min_Click" Background="#59E6B5" BorderBrush="{x:Null}" Foreground="White">
+                
+                <Button Cursor="Hand" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Margin="0,1,3,1" Height="20" Width="20" Click="Min_Click" Background="#59E6B5" BorderBrush="{x:Null}" Foreground="White">
                     <materialDesign:PackIcon Kind="WindowMinimize" VerticalAlignment="Center" HorizontalAlignment="Center" Width="15" Height="15"/>
                 </Button>
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Margin="0,1,3,1" Height="20" Width="20" Click="Max_Click" Background="#FFC100" BorderBrush="{x:Null}" Foreground="White">
+                <Button Cursor="Hand" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Margin="0,1,3,1" Height="20" Width="20" Click="Max_Click" Background="#FFC100" BorderBrush="{x:Null}" Foreground="White">
                     <materialDesign:PackIcon Kind="WindowRestore" VerticalAlignment="Center" HorizontalAlignment="Center" Width="15" Height="15"/>
                 </Button>
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Height="20" Width="20" Click="Clo_Click" Background="#FF7900" BorderBrush="{x:Null}" Foreground="White">
+                <Button Cursor="Hand" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Height="20" Width="20" Click="Clo_Click" Background="#FF7900" BorderBrush="{x:Null}" Foreground="White">
                     <materialDesign:PackIcon Kind="WindowClose" VerticalAlignment="Center" HorizontalAlignment="Center" Width="15" Height="15" />
                 </Button>
             </StackPanel>
         </Grid>
         <!--功能选择-->
-        <Grid Grid.Row="1">
+        <Grid MinWidth="600" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="1" Background="#F5F6FA"/>
             <UniformGrid Height="300" VerticalAlignment="Top" Margin=" 15,20,15,0" Rows="5">
-                <RadioButton x:Name="Dashboard" Style="{StaticResource defaultRadioStyle}" Checked="Dashboard_Checked">
+                <RadioButton Cursor="Hand" x:Name="Dashboard" Style="{StaticResource defaultRadioStyle}" Checked="Dashboard_Checked">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="ViewDashboardOutline" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" />
                         <TextBlock Margin="10" Text="汇  总" FontSize="15"/>
                     </StackPanel>
                 </RadioButton>
-                <RadioButton x:Name="Add" Style="{StaticResource defaultRadioStyle}" Checked="Add_Checked">
+                <RadioButton Cursor="Hand" x:Name="Add" Style="{StaticResource defaultRadioStyle}" Checked="Add_Checked">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Add" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" />
                         <TextBlock Text="录  入" FontSize="15" Margin="10"/>
                     </StackPanel>
                 </RadioButton>
-                <RadioButton Style="{StaticResource defaultRadioStyle}">
+                <RadioButton Cursor="Hand" x:Name="Edit" Style="{StaticResource defaultRadioStyle}" Checked="Edit_Checked">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="ChangeHistory" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" />
                         <TextBlock Text="更  改" FontSize="15" Margin="10"/>
                     </StackPanel>
                 </RadioButton>
-                <RadioButton Style="{StaticResource defaultRadioStyle}">
+                <RadioButton Cursor="Hand" x:Name="Delete" Style="{StaticResource defaultRadioStyle}" Checked="Delete_Checked">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Delete" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" />
                         <TextBlock Text="删  除" FontSize="15" Margin="10"/>
                     </StackPanel>
                 </RadioButton>
-                <RadioButton Style="{StaticResource defaultRadioStyle}">
+                <RadioButton Cursor="Hand" x:Name="Saerch" Style="{StaticResource defaultRadioStyle}">
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Search" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                        <materialDesign:PackIcon Kind="Search" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" UseLayoutRounding="False" />
                         <TextBlock Text="查  找" FontSize="15" Margin="10"/>
                     </StackPanel>
                 </RadioButton>
             </UniformGrid>
-            <Frame x:Name="Page" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+            <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Frame x:Name="Page" NavigationUIVisibility="Hidden"/>
+            </ScrollViewer>
         </Grid>
         
     </Grid>

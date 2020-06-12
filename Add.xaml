@@ -24,17 +24,26 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid>
-            <StackPanel Margin="50" Orientation="Vertical">
+            <StackPanel Margin="50" Orientation="Vertical" VerticalAlignment="Center">
                 <TextBlock Text="销售员信息添加" HorizontalAlignment="Center" FontSize="24"/>
                 <TextBox x:Name="sal_no" Margin="0 10 0 10" materialDesign:HintAssist.Foreground="#59E6B5" materialDesign:TextFieldAssist.UnderlineBrush="#59E6B5" materialDesign:HintAssist.Hint="代号" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox x:Name="sal_name" Margin="0 10 0 10" materialDesign:HintAssist.Foreground="#59E6B5" materialDesign:TextFieldAssist.UnderlineBrush="#59E6B5" materialDesign:HintAssist.Hint="姓名" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox x:Name="sal_class" Margin="0 10 0 10" materialDesign:HintAssist.Foreground="#59E6B5" materialDesign:TextFieldAssist.UnderlineBrush="#59E6B5" materialDesign:HintAssist.Hint="组" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox x:Name="sal_sex" Margin="0 10 0 10" materialDesign:HintAssist.Foreground="#59E6B5" materialDesign:TextFieldAssist.UnderlineBrush="#59E6B5" FontSize="18" materialDesign:HintAssist.Hint="性别" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <ComboBox x:Name="sal_sex" Margin="0 10 0 10" materialDesign:HintAssist.Foreground="#59E6B5" materialDesign:TextFieldAssist.UnderlineBrush="#59E6B5" FontSize="18" materialDesign:HintAssist.Hint="性别" Style="{StaticResource MaterialDesignFloatingHintComboBox}" >
+                    <ComboBoxItem>
+                        男
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        女
+                    </ComboBoxItem>
+                </ComboBox>
                 <TextBox x:Name="sal_age" Margin="0 10 0 10" materialDesign:HintAssist.Foreground="#59E6B5" materialDesign:TextFieldAssist.UnderlineBrush="#59E6B5" FontSize="18" materialDesign:HintAssist.Hint="年龄" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox x:Name="sal_number" MaxLength="12" Margin="0 10 0 10" materialDesign:HintAssist.Foreground="#59E6B5" materialDesign:TextFieldAssist.UnderlineBrush="#59E6B5" FontSize="18" materialDesign:HintAssist.Hint="手机号码" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <PasswordBox x:Name="sal_pwd" Margin="0 10 0 10" materialDesign:HintAssist.Foreground="#59E6B5" materialDesign:TextFieldAssist.UnderlineBrush="#59E6B5" FontSize="18" materialDesign:HintAssist.Hint="密码(默认为手机号后六位，点击可修改）" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                <Button Margin="0 10 0 10" Width="100" Background="#59E6B5" BorderBrush="{x:Null}" x:Name="AddBtn" Click="AddBtn_Click">
-                    <TextBlock Text="添加"/>
+                <Button Margin="0 10 0 10" Background="#59E6B5" BorderBrush="{x:Null}" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" ToolTip="添加" x:Name="AddBtn" Click="AddBtn_Click">
+                    <materialDesign:PackIcon Height="30" Width="30" Kind="Add">
+                        
+                    </materialDesign:PackIcon>
                 </Button>
 
                 <ProgressBar x:Name="progressbar" 
@@ -46,13 +55,15 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Column="1">
-            <StackPanel Margin="50" Orientation="Vertical">
+            <StackPanel Margin="50" Orientation="Vertical" VerticalAlignment="Center">
                 <TextBlock Text="销售额信息添加" HorizontalAlignment="Center" FontSize="24"/>
                 <TextBox x:Name="No" Margin="0 10 0 10" materialDesign:HintAssist.Foreground="#FF7900" materialDesign:TextFieldAssist.UnderlineBrush="#FF7900" materialDesign:HintAssist.Hint="代号" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox x:Name="Mount" Margin="0 10 0 10" materialDesign:HintAssist.Foreground="#FF7900" materialDesign:TextFieldAssist.UnderlineBrush="#FF7900" materialDesign:HintAssist.Hint="销售额" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <DatePicker x:Name="Date" Margin="0 10 0 10" materialDesign:HintAssist.Foreground="#FF7900" materialDesign:TextFieldAssist.UnderlineBrush="#FF7900" materialDesign:HintAssist.Hint="日期" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                <Button Margin="0 10 0 10" Width="100" Background="#FF7900" BorderBrush="{x:Null}" x:Name="GradeAdd" Click="GradeAdd_Click">
-                    <TextBlock Text="添加"/>
+                <Button Margin="0 10 0 10" Background="#FF7900" BorderBrush="{x:Null}" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" ToolTip="添加" x:Name="GradeAdd" Click="GradeAdd_Click">
+                    <materialDesign:PackIcon Height="30" Width="30" Kind="Add">
+
+                    </materialDesign:PackIcon>
 
                 </Button>
 

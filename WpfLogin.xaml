@@ -17,7 +17,7 @@
           DoWork="backgroundWorker_DoWork"  
           RunWorkerCompleted="backgroundWorker_RunWorkerCompleted"></cm:BackgroundWorker>
     </Window.Resources>
-    <DockPanel Margin="0,0,0,82">
+    <DockPanel Margin="0,0,0,80">
 
         <Grid DockPanel.Dock="Top" Height="30"  MouseMove="WindowsMove" Background="#FF2073B9">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,0" >
@@ -34,15 +34,23 @@
                欢 迎
             </TextBlock>
             
-                <TextBox Name="txtUser" Margin="0,100" materialDesign:HintAssist.Hint="用户名" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Yu Mincho Light" FontSize="14" />
+                <TextBox Name="txtUser" Margin="0,100" materialDesign:HintAssist.Hint="ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Yu Mincho Light" FontSize="14" />
                 <PasswordBox Name="txtPwd" Margin="0,150" materialDesign:HintAssist.Hint="密码" materialDesign:HintAssist.Foreground="Green" materialDesign:TextFieldAssist.UnderlineBrush="Green" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" FontSize="14" FontFamily="Yu Mincho Light"/>
+            <ComboBox Name="IDtype" materialDesign:HintAssist.Hint="身份"  VerticalAlignment="Top" Width="200" Margin="75,200,75,0" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Cursor="Hand">
+                <ComboBoxItem>
+                    管理员
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    员工
+                </ComboBoxItem>
+            </ComboBox>
 
             <Grid Margin="80,265,80,70">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="56*"/>
                     <ColumnDefinition Width="135*"/>
                 </Grid.ColumnDefinitions>
-                <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="登 录" Width="90" Height="30" Grid.ColumnSpan="2" Margin="0,-17,0,-0.333" Click="Login_Click" />
+                <Button x:Name="btn_Login" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="登 录" Width="90" Height="30" Grid.ColumnSpan="2" Margin="0,-17,0,-0.333" Click="Login_Click" />
                 <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="注 册" Width="90" Height="30" Grid.Column="1" Margin="0,-17,0,-0.333" Click="Res_Click"/>
             </Grid>
             <ProgressBar Name="progressBar" Style="{StaticResource MaterialDesignCircularProgressBar}"

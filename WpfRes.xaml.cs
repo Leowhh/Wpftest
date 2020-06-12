@@ -48,7 +48,7 @@ namespace Wpftest
             string user_pwd = txtPwd.Password;
             string ip_addr = txtIp_addr.Text.Trim();
             progressBar.IsIndeterminate = true;
-
+            btn_OK.IsEnabled = false;
             UserResinfoInput input = new UserResinfoInput(user_id, user_pwd, ip_addr);
 
             backgroundWorker.RunWorkerAsync(input);
@@ -119,7 +119,7 @@ namespace Wpftest
             {
                     Close();
                     progressBar.IsIndeterminate = false;
-               
+                    
             }
 
         }

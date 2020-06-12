@@ -2,3 +2,6 @@
 
 # IDE0055: 修正格式
 dotnet_diagnostic.IDE0055.severity = none
+
+# CS0642: 空语句可能有错误
+dotnet_diagnostic.CS0642.severity = none

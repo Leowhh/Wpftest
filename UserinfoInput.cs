@@ -14,10 +14,13 @@ namespace Wpftest
             public string User_pwd
             { get; set; }
 
-            public UserinfoInput(string user_id, string user_pwd)
+            public int IDtype
+            { get; set; }
+            public UserinfoInput(string user_id, string user_pwd, int idtype)
             {
                 User_id = user_id;
                 User_pwd = user_pwd;
+                IDtype = idtype;
             }
     }
     public class UserResinfoInput
@@ -38,4 +41,15 @@ namespace Wpftest
             Ip_addr = ip_addr;
         }
     }
+    public class UpdateMonth
+    {
+        public string Year
+        { get; set; }
+        public UpdateMonth(string year)
+        {
+            Year = year;
+        }
+    }
+
+
 }

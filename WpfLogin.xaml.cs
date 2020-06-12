@@ -28,6 +28,7 @@ namespace Wpftest
         public WpfLogin()
         {
             InitializeComponent();
+            IDtype.SelectedIndex = 0;
             backgroundWorker = ((BackgroundWorker)this.FindResource("backgroundWorker"));
         }
 
@@ -57,17 +58,20 @@ namespace Wpftest
         {
             string user_id = txtUser.Text.Trim();
             string user_pwd = txtPwd.Password;
-
+            int type;
             progressBar.IsIndeterminate = true;
+            btn_Login.IsEnabled = false;
+            type = Convert.ToInt32(IDtype.SelectedIndex);
 
-            UserinfoInput input = new UserinfoInput(user_id, user_pwd);
+            UserinfoInput input = new UserinfoInput(user_id, user_pwd, type);
             
             backgroundWorker.RunWorkerAsync(input);
         }
-        private static bool Login(string user_id,string user_pwd, System.ComponentModel.BackgroundWorker backgroundWorker)
+        private static bool Login(string user_id,string user_pwd, int IDtype, System.ComponentModel.BackgroundWorker backgroundWorker)
         {
-            
+
             //获取本机ip地址
+            
             string ip_addr = string.Empty;
             string HostName = Dns.GetHostName();//得到主机名；
             IPHostEntry IpEntry = Dns.GetHostEntry(HostName);
@@ -83,10 +87,29 @@ namespace Wpftest
             user_pwd = Commons.EncodeHelper.AES_Encrypt(user_pwd);
             //数据库验证
             UserinfoServiceSoapClient us = new UserinfoServiceSoapClient();
-            string message = us.Login(user_id, user_pwd, ip_addr);
+            string message="";
+            if (IDtype == 0)
+            {
+                message = us.Login(user_id, user_pwd, ip_addr);
+            }
+            else
+            {
+                message = us.LoginSal(user_id, user_pwd);
+            }
             if (string.IsNullOrEmpty(message))
             {
-                WpfMain.user_id = user_id;
+
+                if (IDtype == 0)
+                {
+                    WpfMain.user_type = "管理员";
+                    WpfMain.user_id = user_id;
+                }
+                else
+                {
+                    WpfMain.user_type = "员工";
+                    WpfMain.user_id = user_id;
+                }
+                    
                 return true;
                 //DialogResult = Convert.ToBoolean(1);
             }
@@ -111,7 +134,7 @@ namespace Wpftest
             UserinfoInput input = (UserinfoInput)e.Argument;
 
             // Start the search for primes and wait.
-            bool result = Login(input.User_id, input.User_pwd, backgroundWorker);
+            bool result = Login(input.User_id, input.User_pwd, input.IDtype, backgroundWorker);
 
             if (backgroundWorker.CancellationPending)
             {
@@ -144,6 +167,7 @@ namespace Wpftest
                else
                 {
                     progressBar.IsIndeterminate = false;
+                    btn_Login.IsEnabled = true;
                 }
             }       
             

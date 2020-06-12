@@ -96,7 +96,7 @@ namespace Wpftest
             else
             {
                 progressbar.IsIndeterminate = false;
-
+                AddBtn.IsEnabled = true;
             }
         }
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -113,20 +113,21 @@ namespace Wpftest
             else
             {
                 Mountprogressbar.IsIndeterminate = false;
-
+                GradeAdd.IsEnabled = true;
             }
         }
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
             progressbar.IsIndeterminate = true;
-
+            AddBtn.IsEnabled = false;
             SalesService.Sale sale = new Sale();//实例化对应表的实体（model）对象
             string number = sal_number.Text;
-            if (number == null)
+            if (sal_pwd.Password == "")
             {
-                sal_pwd.Password = number.Substring(6, 6);
+                sal_pwd.Password = number.Substring(5, 6);
             }
+ 
             sale.sal_no = sal_no.Text.Trim();//控件中的值赋给实体对象的属性
             sale.sal_name = sal_name.Text.Trim();
             sale.sal_class = sal_class.Text.Trim();
@@ -134,7 +135,7 @@ namespace Wpftest
             sale.sal_sex = sal_sex.Text.Trim();
             sale.sal_number = sal_number.Text.Trim();
             sale.sal_pwd = sal_pwd.Password;
-
+           
             backgroundWorker.RunWorkerAsync(sale);
         }
 
@@ -142,7 +143,7 @@ namespace Wpftest
         {
             
             Mountprogressbar.IsIndeterminate = true;
-
+            GradeAdd.IsEnabled = false;
             SalesService.SaleGrade salegrade = new SaleGrade();//实例化对应表的实体（model）对象
 
             salegrade.sal_no = No.Text.Trim();//控件中的值赋给实体对象的属性
@@ -150,7 +151,7 @@ namespace Wpftest
             salegrade.sal_mount = Mount.Text.Trim();
 
             backgroundWorker1.RunWorkerAsync(salegrade);
-           // uuyu 
+           
         }
     }
 }

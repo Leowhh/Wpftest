@@ -22,19 +22,23 @@ namespace Wpftest
     /// <summary>
     /// Dashboard.xaml 的交互逻辑
     /// </summary>
-    public partial class Dashboard : Page
+    public partial class DashboardSal : Page
     {
+        public static string user_id;
         private BackgroundWorker backgroundWorkerUpdateMonth;
-        public Dashboard()
+        public DashboardSal()
         {
             InitializeComponent();
             backgroundWorkerUpdateMonth = ((BackgroundWorker)this.FindResource("backgroundWorkerUpdateMonth"));
             Month.IsChecked = true;
+
         }
         private void Year_Checked(object sender, RoutedEventArgs e)
         {
             UpdateYear();
         }
+
+
         private void Month_Checked(object sender, RoutedEventArgs e)
         {
             string y = year.Text;
@@ -42,10 +46,6 @@ namespace Wpftest
             MaxTip.Text = "年度销售额最大月";
             MinTip.Text = "年度销售额最小月";
             month.Visibility = Visibility.Collapsed;
-                //x轴
-            string[] Labels = new[] { "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月" };
-            s1x.Labels = Labels;
-            
             if (y == "")
                 ;
             else
@@ -55,10 +55,6 @@ namespace Wpftest
                 backgroundWorkerUpdateMonth.RunWorkerAsync(input);
                 //UpdateMonth(y);
             }
-        }
-        private void Day_Checked(object sender, RoutedEventArgs e)
-        {
-            month.Visibility = Visibility.Visible;
         }
         public void UpdateYear()
         {
@@ -96,10 +92,10 @@ namespace Wpftest
             float total = com.total;
             this.Dispatcher.BeginInvoke((Action)delegate ()
             {                 //括号里些想要使用的控件属性    
-                
+
                 Max.Text = "当月共计￥" + max;
                 Min.Text = "当月共计￥" + min;
-               
+
                 Total.Text = "全年共计￥" + total;
                 MaxMonth.Text = maxMonth.ToString();
                 MinMonth.Text = minMonth.ToString();
@@ -127,10 +123,7 @@ namespace Wpftest
 
 
             });
-
-            
         }
-
         private void year_btn_Click(object sender, RoutedEventArgs e)
         {
             string y = year.Text;
@@ -144,13 +137,18 @@ namespace Wpftest
             //UpdateMonth(y);
         }
 
+        private void Day_Checked(object sender, RoutedEventArgs e)
+        {
+            month.Visibility = Visibility;
+
+        }
         private static Month AsyncUpdateMonth(string year, System.ComponentModel.BackgroundWorker backgroundWorker)
         {
             SalesServiceSoapClient ss = new SalesServiceSoapClient();//实例化web服务对象
             Month month = new Month();//实例化对应表的实体（model）对象
-            
-            month = ss.SelectGrade(year);
-            return month;        
+
+            month = ss.SelectSalGrade(year,user_id);
+            return month;
 
         }
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)

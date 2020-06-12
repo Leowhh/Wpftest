@@ -34,7 +34,7 @@
                注 册
             </TextBlock>
 
-            <TextBox Margin="0,100" Name="txtUser" materialDesign:HintAssist.Hint="用户名" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Yu Mincho Light" FontSize="14" />
+            <TextBox Margin="0,100" Name="txtUser" materialDesign:HintAssist.Hint="ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Yu Mincho Light" FontSize="14" />
             <PasswordBox  Name="txtPwd" materialDesign:HintAssist.Hint="密码" materialDesign:HintAssist.Foreground="Green" materialDesign:TextFieldAssist.UnderlineBrush="Green" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Margin="0,150" FontSize="14" FontFamily="Yu Mincho Light"/>
             <TextBox IsReadOnly="True" Name="txtIp_addr" HorizontalAlignment="Center" VerticalAlignment="Top" Width="200" Margin="75,200,75,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" >
                 <materialDesign:HintAssist.Hint>
@@ -49,7 +49,7 @@
 
 
 
-            <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="O K" Width="90" Height="30" Margin="0,70" Click="OK_Click" />
+            <Button x:Name="btn_OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="O K" Width="90" Height="30" Margin="0,70" Click="OK_Click" />
 
             <ProgressBar Name="progressBar" Style="{StaticResource MaterialDesignCircularProgressBar}"
   Value="0"
